@@ -1,23 +1,17 @@
-/*
-  Input: 0.67
-  Output:
-  {
-    quarters: 2,
-    dimes: 1,
-    nickels: 1,
-    pennies: 2
-  }
+var coinPurse = {
+  quarters: .25,
+  dimes: .1,
+  nickels: .05,
+  pennies: .01
+};
 
-*/
+var money = [];
+function coinCounter(coins) {
+  money.unshift( coins / coinPurse.quarters);
+  money.unshift( coins / coinPurse.dimes ); 
+  money.unshift( coins / coinPurse.nickels );
+  money.unshift( coins / coinPurse.pennies );
+};
 
-function coinCounter () {
-  // Initialize a JavaScript object to hold the coins
-  var coinPurse = {};
-
-  coinPurse.quarters = 0;
-
-  return coinPurse;
-}
-
-var coins = coinCounter()
-console.log();
+coinCounter(.99);
+console.log("Money Object =", money );
