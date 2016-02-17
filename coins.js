@@ -1,17 +1,19 @@
-var coinPurse = {
-  quarters: .25,
-  dimes: .1,
-  nickels: .05,
-  pennies: .01
-};
 
-var money = [];
+  var coinPurse = {
+    quarters: 0,
+    dimes: 0,
+    nickels: 0,
+    pennies: 0
+  };
+  
+
 function coinCounter(coins) {
-  money.unshift( coins / coinPurse.quarters);
-  money.unshift( coins / coinPurse.dimes ); 
-  money.unshift( coins / coinPurse.nickels );
-  money.unshift( coins / coinPurse.pennies );
+  (coins / .25).mathFloor = coinPurse.quarters;
+  (coins / .10).mathFloor = coinPurse.dimes;
+  (coins / .5).mathFloor = coinPurse.nickels;
+  (coins / .1).mathFloor = coinPurse.pennies;
+  return coinPurse;
 };
 
-coinCounter(.99);
-console.log("Money Object =", money );
+console.log("Meh?", coinCounter(.87));
+
